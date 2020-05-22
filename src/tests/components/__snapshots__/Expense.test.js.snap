@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display expense with correct values 1`] = `
+<div>
+  <p>
+    1
+     
+    <Link
+      to="/edit/1"
+    >
+      Water Bill
+    </Link>
+     
+    1500
+     
+    1000
+  </p>
+</div>
+`;
