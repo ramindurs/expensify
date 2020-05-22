@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import 'normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import numeral from 'numeral';
 
 const store = configureStore();
 
@@ -16,5 +17,4 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('app'));
-
 console.log("app is running");

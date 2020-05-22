@@ -2,18 +2,17 @@
 
 exports[`should display expense with correct values 1`] = `
 <div>
+  1
+   
+  <Link
+    to="/edit/1"
+  >
+    Water Bill
+  </Link>
   <p>
-    1
-     
-    <Link
-      to="/edit/1"
-    >
-      Water Bill
-    </Link>
-     
-    1500
-     
-    1000
+    15.00
+    -
+    Jan 1st 1970
   </p>
 </div>
 `;
