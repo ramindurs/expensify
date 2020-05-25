@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render expenses summary component 1`] = `
+<div>
+  <h4>
+    Expenses Summary
+  </h4>
+  Number of Expenses: 0
+</div>
+`;
+
+exports[`should render expenses when there are more than one expense 1`] = `
+<div>
+  <h4>
+    Expenses Summary
+  </h4>
+  Number of Expenses: 3 Total Amount: £245
+</div>
+`;
+
+exports[`should render expenses when there is one expense 1`] = `
+<div>
+  <h4>
+    Expenses Summary
+  </h4>
+  Number of Expenses: 1 Total Amount: £15
+</div>
+`;
