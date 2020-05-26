@@ -11,8 +11,11 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "firebase": "^7.14.5",
     "mini-css-extract-plugin": "^0.9.0",
     "moment": "^2.25.3",
     "node-sass": "^4.14.1",
@@ -26,6 +29,7 @@
     "react-router-dom": "^5.2.0",
     "react-with-styles": "^4.1.0",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "uuid": "^8.0.0",
@@ -38,15 +42,16 @@
     "enzyme-to-json": "^3.4.4",
     "jest": "^26.0.1",
     "react-test-renderer": "^16.13.1",
+    "redux-mock-store": "^1.5.4",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "test": "jest --config=jest.config.json",
-    "dev-server": "webpack-dev-server",
-    "build:dev": "webpack --env development",
-    "build:prod": "webpack -p --env production",
-    "start": "node web-server/server.js",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
+    "dev-server": "cross-env NODE_ENV=test webpack-dev-server",
+    "build:dev": "cross-env NODE_ENV=test webpack --env development",
+    "build:prod": "cross-env NODE_ENV=production webpack -p --env production",
+    "start": "cross-env NODE_ENV=test node web-server/server.js",
     "heroku-postbuild": "yarn run build:prod"
   }
 }

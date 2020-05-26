@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import 'normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
-import numeral from 'numeral';
+import './firebase/firebase';
 
 const store = configureStore();
 
