@@ -4,7 +4,7 @@ import {
     editExpense,
     removeExpense,
     setExpenses,
-    startSetExpenses
+    startSetExpenses, startRemoveExpense
 } from "../../actions/expenses";
 import expenses from "../fixtures/expenses";
 import configureMockStore from 'redux-mock-store';
@@ -24,11 +24,25 @@ beforeEach((done) => {
 });
 
 test('should set up remove expense action', () => {
-    const result = removeExpense({id: 1234});
+    const result = removeExpense(1234);
 
     expect(result).toEqual({
         type: 'REMOVE_EXPENSE',
         id: 1234
+    });
+});
+
+test('should start removing expense', (done) => {
+    const store = createMockStore();
+    const idToDelete = expenses[1].id;
+
+    store.dispatch(startRemoveExpense(idToDelete)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'REMOVE_EXPENSE',
+            id: idToDelete
+        });
+        done();
     });
 });
 

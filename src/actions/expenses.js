@@ -32,10 +32,21 @@ export const startAddExpense = (expenseData = {}) => {
     };
 };
 
-export const removeExpense = ({id}) => ({
+export const removeExpense = (id) => ({
     type: 'REMOVE_EXPENSE',
     id
 });
+
+export const startRemoveExpense = (id) => {
+    return (dispatch) => {
+        const ref = `${FB_REF}/${id}`;
+        return database().ref(ref).remove().then(() => {
+            return dispatch(removeExpense(id));
+        }).catch((error) => {
+            console.error('Error removing ', ref);
+        });
+    };
+};
 
 export const editExpense = ({id, updates}) => ({
     type: 'EDIT_EXPENSE',
