@@ -28,5 +28,5 @@ test('should handle onSubmit', () => {
         "id": '1',
         "note": ""
     });
-    expect(history.push).toHaveBeenLastCalledWith('/');
+    expect(history.push).toHaveBeenLastCalledWith('/dashboard');
 });

@@ -34,6 +34,6 @@ test('should handle remove expense', () => {
 test('should handle update expense', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expense);
 
-    expect(history.push).toHaveBeenLastCalledWith('/');
+    expect(history.push).toHaveBeenLastCalledWith('/dashboard');
     expect(startEditExpense).toHaveBeenLastCalledWith('1', expense);
 });

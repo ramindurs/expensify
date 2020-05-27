@@ -1,4 +1,4 @@
-#Expensify - A React Project
+# Expensify - A React Project
 ## Usage
 To run:
 1. Test: `yarn test --watchAll`
