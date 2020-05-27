@@ -25,7 +25,7 @@ test('should handle onSubmit', () => {
         "amount": 1500,
         "createdAt": 1000,
         "description": "Water Bill",
-        "id": 1,
+        "id": '1',
         "note": ""
     });
     expect(history.push).toHaveBeenLastCalledWith('/');

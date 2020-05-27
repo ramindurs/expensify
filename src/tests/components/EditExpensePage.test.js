@@ -28,12 +28,12 @@ test('should render edit expense page', () => {
 test('should handle remove expense', () => {
     wrapper.find('button').simulate('click');
 
-    expect(removeExpenseSpy).toHaveBeenLastCalledWith(1);
+    expect(removeExpenseSpy).toHaveBeenLastCalledWith('1');
 });
 
 test('should handle update expense', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expense);
 
     expect(history.push).toHaveBeenLastCalledWith('/');
-    expect(editExpenseSpy).toHaveBeenLastCalledWith(1, expense);
+    expect(editExpenseSpy).toHaveBeenLastCalledWith('1', expense);
 });

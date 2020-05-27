@@ -12,7 +12,7 @@ exports[`should render edit expense page 1`] = `
         "amount": 1500,
         "createdAt": 1000,
         "description": "Water Bill",
-        "id": 1,
+        "id": "1",
         "note": "",
       }
     }

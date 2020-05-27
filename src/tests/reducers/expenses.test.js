@@ -60,7 +60,7 @@ test('should update an expense', () => {
     const result = expenseReducer(expenses, action);
 
     expect(result).toEqual([expenses[0], {
-        id: 2,
+        id: '2',
         description: 'Electric bill',
         note: 'Test Note',
         amount: 30000,
@@ -81,4 +81,26 @@ test('should not update an expense if id is not found', () => {
     const result = expenseReducer(expenses, action);
 
     expect(result).toEqual(expenses);
+});
+
+test('should set expenses with an array of expenses', () => {
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses
+    };
+
+    const result = expenseReducer(expenses, action);
+
+    expect(result).toEqual(expenses);
+});
+
+test('should set expenses with empty array', () => {
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses: {}
+    };
+
+    const result = expenseReducer(expenses, action);
+
+    expect(result).toEqual({});
 });
