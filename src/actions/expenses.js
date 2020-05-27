@@ -54,6 +54,17 @@ export const editExpense = ({id, updates}) => ({
     updates
 });
 
+export const startEditExpense = ({id, updates}) => {
+    return (dispatch) => {
+        const ref = `${FB_REF}/${id}`;
+        return database().ref(ref).update(updates).then(() => {
+            return dispatch(editExpense({id, updates}));
+        }).catch((error) => {
+            console.error('Error updating', ref);
+        });
+    }
+};
+
 export const setExpenses = (expenses) => ({
     type: 'SET_EXPENSES',
     expenses
