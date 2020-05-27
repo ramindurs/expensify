@@ -42,7 +42,11 @@ test('should start removing expense', (done) => {
             type: 'REMOVE_EXPENSE',
             id: idToDelete
         });
-        done();
+        return database().ref(`expenses/${idToDelete}`).once('value')
+            .then((snapshot) => {
+                expect(snapshot.val()).toBeFalsy();
+                done();
+            })
     });
 });
 
