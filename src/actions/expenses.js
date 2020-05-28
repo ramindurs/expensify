@@ -1,7 +1,5 @@
 import database from '../firebase/firebase';
 
-const FB_REF = 'expenses';
-
 export const addExpense = (expense) => ({
         type: 'ADD_EXPENSE',
         expense
@@ -9,7 +7,7 @@ export const addExpense = (expense) => ({
 );
 
 export const startAddExpense = (expenseData = {}) => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         const {
             description = '',
             note = '',
@@ -22,7 +20,7 @@ export const startAddExpense = (expenseData = {}) => {
             amount,
             createdAt
         };
-        return database().ref(FB_REF).push(expense).then((fbRef) => {
+        return database().ref(getFirebasePath(getState)).push(expense).then((fbRef) => {
             dispatch(addExpense({
                 id: fbRef.key,
                 ...expense
@@ -37,8 +35,8 @@ export const removeExpense = (id) => ({
 });
 
 export const startRemoveExpense = (id) => {
-    return (dispatch) => {
-        const ref = `${FB_REF}/${id}`;
+    return (dispatch, getState) => {
+        const ref = `${getFirebasePath(getState)}/${id}`;
         return database().ref(ref).remove().then(() => {
             return dispatch(removeExpense(id));
         }).catch((error) => {
@@ -54,8 +52,8 @@ export const editExpense = ({id, updates}) => ({
 });
 
 export const startEditExpense = ({id, updates}) => {
-    return (dispatch) => {
-        const ref = `${FB_REF}/${id}`;
+    return (dispatch, getState) => {
+        const ref = `${getFirebasePath(getState)}/${id}`;
         return database().ref(ref).update(updates).then(() => {
             return dispatch(editExpense({id, updates}));
         }).catch((error) => {
@@ -70,8 +68,8 @@ export const setExpenses = (expenses) => ({
 });
 
 export const startSetExpenses = () => {
-    return (dispatch) => {
-        return database().ref(FB_REF).once('value')
+    return (dispatch, getState) => {
+        return database().ref(getFirebasePath(getState)).once('value')
             .then((dataSnapshot) => {
                 const expenses = [];
                 dataSnapshot.forEach((childSnapshot) => {
@@ -84,3 +82,5 @@ export const startSetExpenses = () => {
             });
     };
 };
+
+const getFirebasePath = (getState) => (`users/${getState().auth.uid}/expenses`);
