@@ -21,10 +21,3 @@ export const setEndDate = (endDate) => ({
     type: 'SET_END_DATE',
     endDate
 });
-
-export const filterReducerDefaultState = {
-    text: 'rent',
-    sortBy: 'date', //date or amount
-    startDate: undefined,
-    endDate: undefined
-};

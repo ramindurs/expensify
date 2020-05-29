@@ -2,7 +2,7 @@ import filterReducer from '../../reducers/filters';
 import moment from "moment";
 
 const defaultFilter = {
-    text: 'rent',
+    text: '',
     sortBy: 'date',
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month')

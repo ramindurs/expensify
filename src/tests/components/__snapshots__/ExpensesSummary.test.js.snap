@@ -2,27 +2,99 @@
 
 exports[`should render expenses summary component 1`] = `
 <div>
-  <h4>
-    Expenses Summary
-  </h4>
-  Number of Expenses: 0
+  <div
+    className="page-header-layout"
+  >
+    <div
+      className="content_container"
+    >
+      <h1
+        className="page-header-layout__title"
+      >
+        Viewing
+        <span>
+           Number of Expenses: 0
+        </span>
+      </h1>
+      <div
+        className="page-header-layout__actions"
+      >
+        <Link
+          className="button-layout"
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render expenses when there are more than one expense 1`] = `
 <div>
-  <h4>
-    Expenses Summary
-  </h4>
-  Number of Expenses: 3 Total Amount: £245
+  <div
+    className="page-header-layout"
+  >
+    <div
+      className="content_container"
+    >
+      <h1
+        className="page-header-layout__title"
+      >
+        Viewing
+        <span>
+           Number of Expenses: 
+          3
+           Total Amount: £
+          245
+        </span>
+      </h1>
+      <div
+        className="page-header-layout__actions"
+      >
+        <Link
+          className="button-layout"
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render expenses when there is one expense 1`] = `
 <div>
-  <h4>
-    Expenses Summary
-  </h4>
-  Number of Expenses: 1 Total Amount: £15
+  <div
+    className="page-header-layout"
+  >
+    <div
+      className="content_container"
+    >
+      <h1
+        className="page-header-layout__title"
+      >
+        Viewing
+        <span>
+           Number of Expenses: 
+          1
+           Total Amount: £
+          15
+        </span>
+      </h1>
+      <div
+        className="page-header-layout__actions"
+      >
+        <Link
+          className="button-layout"
+          to="/create"
+        >
+          Add Expense
+        </Link>
+      </div>
+    </div>
+  </div>
 </div>
 `;

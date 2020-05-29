@@ -1,0 +1,17 @@
+.button-layout {
+  background: $app-blue;
+  border: none;
+  color: aliceblue;
+  display: inline-block;
+  font-size: $font-size-large;
+  font-weight: 300;
+  line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
+  width: 17rem;
+}
+
+.button-layout__danger {
+  @extend .button-layout;
+  background: darkgrey;
+}

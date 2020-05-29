@@ -17,6 +17,7 @@ export default class ExpenseForm extends React.Component {
             error: ''
         };
     }
+
     convertIntToFloatString = (intnum) => parseFloat(intnum) / 100;
 
     onDescriptionChange = (e) => {
@@ -58,37 +59,42 @@ export default class ExpenseForm extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.state.error ? <p>{this.state.error}</p> : ''}
-                <form onSubmit={this.onSubmitForm}>
-                    <input
-                        type="text"
-                        placeholder={'description'}
-                        value={this.state.description}
-                        onChange={this.onDescriptionChange}
-                        autoFocus/>
-                    <input
-                        type="text"
-                        placeholder={'amount'}
-                        value={this.state.amount}
-                        onChange={this.onAmountChange}
-                    />
-                    <SingleDatePicker
-                        date={this.state.createdAt}
-                        onDateChange={this.onDateChange}
-                        focused={this.state.calendarFocus}
-                        onFocusChange={this.onFocusChange}
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}
-                    />
-                    <textarea
-                        onChange={this.onNoteChange}
-                        value={this.state.note}
-                        placeholder={'Add a note'}>
+            <form
+                className="form-layout"
+                onSubmit={this.onSubmitForm}>
+                {this.state.error ? <p className='form-layout__error'>{this.state.error}</p> : ''}
+                <input
+                    className='text-input'
+                    type="text"
+                    placeholder={'description'}
+                    value={this.state.description}
+                    onChange={this.onDescriptionChange}
+                    autoFocus/>
+                <input
+                    className='text-input'
+                    type="text"
+                    placeholder={'amount'}
+                    value={this.state.amount}
+                    onChange={this.onAmountChange}
+                />
+                <SingleDatePicker
+                    date={this.state.createdAt}
+                    onDateChange={this.onDateChange}
+                    focused={this.state.calendarFocus}
+                    onFocusChange={this.onFocusChange}
+                    numberOfMonths={1}
+                    isOutsideRange={() => false}
+                />
+                <textarea
+                    className='textarea'
+                    onChange={this.onNoteChange}
+                    value={this.state.note}
+                    placeholder={'Add a note'}>
                     </textarea>
-                    <button>{this.props.submitMessage}</button>
-                </form>
-            </div>
+                <div>
+                    <button className='button-layout'>{this.props.submitMessage}</button>
+                </div>
+            </form>
         )
     };
 };

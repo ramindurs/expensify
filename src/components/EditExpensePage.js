@@ -16,19 +16,32 @@ export class EditExpensePage extends React.Component {
     render() {
         return (
             <div>
-                <h3>Edit Expense ID {this.props.expense.id}</h3>
-                <ExpenseForm
-                    expenseToEdit={this.props.expense}
-                    submitMessage={'Update Expense'}
-                    onSubmit={(expense) => {
-                        this.editExpense(this.props.expense.id, expense)
-                    }}
-                />
-                <button onClick={() => {
-                    this.removeExpense(this.props.expense.id)
-                }
-                }>Delete
-                </button>
+                <div className="page-header-layout">
+                    <div className="content_container">
+                        <h1 className="page-header-layout__title">
+                            Editing Expense
+                            <span className="page-header-layout__title-reduce">
+                                &nbsp; &nbsp; ID {this.props.expense.id}
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+                <div className="content_container">
+                    <ExpenseForm
+                        expenseToEdit={this.props.expense}
+                        submitMessage={'Save Updates'}
+                        onSubmit={(expense) => {
+                            this.editExpense(this.props.expense.id, expense)
+                        }}
+                    />
+                    <button
+                        className="button-layout__danger"
+                        onClick={() => {
+                            this.removeExpense(this.props.expense.id)
+                        }}>
+                        Delete Expense
+                    </button>
+                </div>
             </div>
         );
     }
